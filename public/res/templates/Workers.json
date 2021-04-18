@@ -1,0 +1,28 @@
+{
+  "children": [
+    {
+      "id": 0,
+      "last_name": "Ivanov",
+      "name": "Ivan",
+      "fathers_name": "Ivanovic",
+      "email": "iiivanov@cbb.com",
+      "password": "123456",
+      "attributes": [
+        0
+      ],
+      "description": "Ivanov Ivan Ivanovic"
+    },
+    {
+      "id": 1,
+      "last_name": "Sevanov",
+      "name": "Sevan",
+      "fathers_name": "Sevanovic",
+      "email": "sssevanov@cbb.com",
+      "password": "654321",
+      "attributes": [
+        1
+      ],
+      "description": "Sevanov Sevan Sevanovic"
+    }
+  ]
+}

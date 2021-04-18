@@ -1,0 +1,64 @@
+{
+  "children": [
+    {
+      "id": 0,
+      "suspended": false,
+      "description": "description 0",
+      "result": 0,
+      "timeflag": false,
+      "periodflag": false,
+      "period": 0,
+      "days": [false,false,false,false,false,false,false],
+      "children": [
+        {
+          "type": 0,
+          "option": 1,
+          "list": [
+            0
+          ],
+          "count": 3
+        },
+        {
+          "type": 0,
+          "option": 1,
+          "list": [
+            1
+          ],
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "suspended": true,
+      "description": "description 2",
+      "result": 1,
+      "timeflag": true,
+      "timefrom": "11:22",
+      "timeto": "22:00",
+      "periodflag": true,
+      "period": 10,
+      "days": [true,false,true,false,false,false,false],
+      "children": [
+        {
+          "type": 1,
+          "option": 1,
+          "list": [
+            0,
+            1,
+            2
+          ],
+          "count": 3
+        },
+        {
+          "type": 0,
+          "option": 1,
+          "list": [
+            0
+          ],
+          "count": 0
+        }
+      ]
+    }
+  ]
+}
