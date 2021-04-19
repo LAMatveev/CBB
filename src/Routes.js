@@ -1,11 +1,11 @@
 import React from "react";
 import {Redirect, Route, Switch} from "react-router-dom";
-import ManEdit from "../Pages/ManEdit";
-import RuleEdit from "../Pages/RuleEdit";
-import NotFound from "../Pages/NotFound";
-import List from "../Pages/List";
-import Login from "../Pages/Login";
-import AttributeEdit from "../Pages/AttributeEdit";
+import ManEdit from "./Pages/ManEdit";
+import RuleEdit from "./Pages/RuleEdit";
+import NotFound from "./Pages/NotFound";
+import List from "./Pages/List";
+import Login from "./Pages/Login";
+import AttributeEdit from "./Pages/AttributeEdit";
 
 export default function Routes() {
     return (
