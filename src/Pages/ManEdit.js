@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Redirect, useHistory, useParams} from "react-router-dom";
 import CheckboxList from "../Components/CheckboxList";
-import Popup from "../Components/Popup";
 import {checklogin} from "../Components/LoginEmulator";
 import NotFound from "./NotFound";
 
@@ -26,8 +25,6 @@ export default function ManEdit() {
     const [displayed, setDisplayed] = useState([])
     const [checks, setChecks] = useState([]);
 
-    const [text, setText] = useState('')
-    const [popup, setPopup] = useState(false);
     let history = useHistory();
     const [elems, setElems] = useState(null)
     useEffect(() => {
@@ -78,17 +75,15 @@ export default function ManEdit() {
                 else return null
             }).filter(x => x != null)
         }
-        /*const response = await fetch(window.location, {
+        const response = await fetch(window.location, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
                 'JWT': 'token'
             },
             body: JSON.stringify(data)
-        });*/
-        setText(JSON.stringify(data, null, 2))
-        setPopup(true)
-        //return await response.json();
+        });
+        return await response.json();
     }
 
     if (tkey === 403) {
@@ -111,7 +106,6 @@ export default function ManEdit() {
                 height: '100%',
                 overflow: "auto"
             }}>
-                {Popup(popup, setPopup, text)}
                 <Button
                     className={"bbutton"}
                     onClick={() =>

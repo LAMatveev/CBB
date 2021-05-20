@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Redirect, useHistory, useParams} from "react-router-dom";
-import Popup from "../Components/Popup";
 import {checklogin} from "../Components/LoginEmulator";
 
 let path = window.location.toString().substring(0, window.location.toString().lastIndexOf('/'))
@@ -15,9 +14,6 @@ export default function AttributeEdit() {
     const [attr, setAttr] = useState('');
     let history = useHistory();
     const [attributes, setAttributes] = useState(null);
-
-    const [text, setText] = useState('')
-    const [popup, setPopup] = useState(false);
 
     useEffect(() => {
         if (tkey !== 403)
@@ -45,18 +41,15 @@ export default function AttributeEdit() {
             {
                 "description": attr,
             }
-        /*const response = await fetch(window.location, {
+        const response = await fetch(window.location, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
                 'JWT': 'token'
             },
             body: JSON.stringify(data)
-        });*/
-
-        setText(JSON.stringify(data, null, 2))
-        setPopup(true)
-        //return await response.json();
+        });
+        return await response.json();
     }
 
     if (tkey === 403) {
@@ -113,7 +106,6 @@ export default function AttributeEdit() {
                         alignItems: "center",
                         justifyContent: "center"
                     }}>
-                        {Popup(popup, setPopup, text)}
                         <Form.Control required
                                       type={"text"}
                                       value={attr}

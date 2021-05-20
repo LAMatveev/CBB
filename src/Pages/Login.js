@@ -13,7 +13,8 @@ export default function Login() {
     let history = useHistory()
 
     useEffect(() => {
-        if (checklogin(localStorage.getItem('token')) !== 403) {
+        let res = checklogin(localStorage.getItem('token'))
+        if (res !== 403) {
             history.push('/Attributes')
         }
     })

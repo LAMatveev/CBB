@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import NavHead from "../Components/NavHead";
 import NotFound from "./NotFound";
 import DeleteIcon from '@material-ui/icons/DeleteOutlined';
-import Popup from "../Components/Popup";
 import {IconButton} from "@material-ui/core";
 import {Form} from "react-bootstrap";
 import {checklogin} from "../Components/LoginEmulator";
@@ -18,8 +17,6 @@ export default function List() {
     const [elems, setElems] = useState(null);
     const [display, setDisplay] = useState([]);
 
-    const [text, setText] = useState('')
-    const [popup, setPopup] = useState(false);
 
     async function exists(url) {
         const result = await fetch(url, {method: 'HEAD'});
@@ -56,17 +53,15 @@ export default function List() {
             {
                 "id": id
             }
-        /*const response = await fetch(window.location, {
+        const response = await fetch(window.location, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'JWT':
+                'token': localStorage.getItem('token')
             },
             body: JSON.stringify(data)
-        });*/
-        setText(JSON.stringify(data, null, 2))
-        setPopup(true)
-        //return await response.json();
+        });
+        return await response.json();
     }
 
     function searchHandler(e) {
@@ -144,7 +139,6 @@ export default function List() {
                             border: "solid darkblue 2px",
                             borderRadius: "1rem"
                         }}>
-                            {Popup(popup, setPopup, text)}
                             <Button style={{marginBottom: "1em"}} className={'round'} key={-1}
                                     href={`/${id}/-1`}>{'➕'}</Button>
                             {

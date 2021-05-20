@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import {Redirect, useHistory, useParams} from "react-router-dom";
 import Arg from "../Components/Arg";
 import DropDown from "../Components/DropDown";
-import Popup from "../Components/Popup";
 import {checklogin} from "../Components/LoginEmulator";
 
 export default function RuleEdit() {
@@ -43,9 +42,6 @@ export default function RuleEdit() {
     const [rules, setRules] = useState(null);
     const [workers, setWorkers] = useState(null);
     const [attributes, setAttributes] = useState(null);
-
-    const [text, setText] = useState('')
-    const [popup, setPopup] = useState(false);
 
 
     useEffect(() => {
@@ -136,17 +132,15 @@ export default function RuleEdit() {
             }
 
         })
-        /*const response = await fetch(window.location, {
+        const response = await fetch(window.location, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
                 'JWT': localStorage.getItem('token')
             },
             body: JSON.stringify(data)
-        });*/
-        setText(JSON.stringify(data, null, 2))
-        setPopup(true)
-        //return await response.json();
+        });
+        return await response.json();
     }
 
     if (tkey === 403) {
@@ -168,7 +162,6 @@ export default function RuleEdit() {
                     height: '100%',
                     overflow: "auto"
                 }}>
-                    {Popup(popup, setPopup, text)}
                     <Button onClick={() => {
                         history.push(arg)
                     }} className={"bbutton"} style={{
